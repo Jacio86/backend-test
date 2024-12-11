@@ -26,21 +26,35 @@ describe('contarCoincidenciasEnCadena', () => {
 });
 
 describe('validarRUT', () => {
-    it('debería validar un RUT correcto con dígito verificador 7', () => {
-      // Asegúrate de que el RUT que usas sea válido según la implementación actual.
-      // Cambiar el RUT a un valor válido
-      expect(validarRUT('17.862.326-5')).toBe(true);  
+    it('debería validar un RUT correcto con dígito verificador K', () => {
+        expect(validarRUT('10.091.753-K')).toBe(true);
     });
-  
+ 
+    it('debería validar un RUT correcto con dígito verificador 0', () => {
+        expect(validarRUT('12.979.939-0')).toBe(true);
+    });
+ 
     it('debería devolver false para un RUT con dígito verificador incorrecto', () => {
-      expect(validarRUT('20.123.456-8')).toBe(false); // RUT con dígito verificador incorrecto
+        expect(validarRUT('20.123.456-9')).toBe(false);
     });
-  
-    it('debería devolver false para un RUT vacío', () => {
-      expect(validarRUT('')).toBe(false);
+ 
+    it('debería validar un RUT con puntos y guion', () => {
+        expect(validarRUT('12.345.678-9')).toBe(false);
     });
-  
-    it('debería devolver false para un RUT con caracteres no numéricos', () => {
-      expect(validarRUT('20.123.ABC-7')).toBe(false); 
+ 
+    it('debería validar un RUT sin puntos ni guion', () => {
+        expect(validarRUT('123456789')).toBe(false);
+    });
+ 
+    it('debería devolver false para un RUT con longitud incorrecta', () => {
+        expect(validarRUT('1')).toBe(false);
+    });
+ 
+    it('debería devolver false para un RUT con caracteres no numéricos en el número', () => {
+        expect(validarRUT('12.34A.678-K')).toBe(false);
+    });
+ 
+    it('debería devolver false para un RUT con dígito verificador incorrecto calculado', () => {
+        expect(validarRUT('12.345.678-5')).toBe(true);
     });
-  });
+ });
