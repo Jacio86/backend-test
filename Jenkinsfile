@@ -18,11 +18,11 @@ pipeline {
                         sh 'npm install'
                     }
                 }
-                // stage("build - ejecucion de test"){
-                //     steps{
-                //         sh 'npm run test'
-                //     }
-                // }
+                stage("build - ejecucion de test"){
+                    steps{
+                        sh 'npm run test'
+                    }
+                }
                 //stage("build - build del proyecto"){
                   //  steps{
                     //    sh 'npm run build'
