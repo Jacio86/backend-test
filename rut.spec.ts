@@ -1,5 +1,5 @@
 import { describe, test, expect } from "@jest/globals"
-import { contarCoincidenciasEnCadena } from "../backend-test/src/app/cadenas";
+import { contarCoincidenciasEnCadena } from "./src/app/cadenas";
 
 import { validarRUT } from "../backend-test/src/app/rut";
 

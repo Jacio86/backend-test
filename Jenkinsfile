@@ -1,9 +1,13 @@
 pipeline {
     agent any
-       stages{
+    environment {
+        USERNAME = "jacio"
+    }
+    stages{
         stage("build"){
             agent {
                 docker {
+                    label 'contenedores'
                     image 'node:22-alpine'
                     reuseNode true
                 }
