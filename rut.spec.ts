@@ -58,5 +58,5 @@ describe('validarRUT', () => {
  
     it('debería devolver false para un RUT con dígito verificador incorrecto calculado', () => {
         expect(validarRUT('12.345.678-5')).toBe(true);
-    });
- });
+});
+});
